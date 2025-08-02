@@ -6,6 +6,19 @@ from utils.camera_utils import capture_food_image
 st.set_page_config(page_title="Gym PPL Tracker", layout="centered")
 
 st.title("🏋️ Gym Workout & Nutrition Tracker")
+selected = st.sidebar.selectbox(
+    "Navigate",
+    ["🏠 Home", "💪 Workout Log", "🍽 Nutrition", "📊 Summary"]
+)
+if selected == "🏠 Home":
+    st.title("🏠 Welcome to FitTrack")
+elif selected == "💪 Workout Log":
+    # Add workout section code here
+elif selected == "🍽 Nutrition":
+    # Add nutrition section code here
+elif selected == "📊 Summary":
+    # Show summary or charts here
+
 
 # --- User Inputs ---
 st.sidebar.header("Customize Your Plan")
@@ -43,3 +56,35 @@ st.caption("🧠 (Note: Currently no ML model used — estimation is manual)")
 
 st.markdown("---")
 st.caption("Made with ❤️ by Jimmyy")
+import streamlit as st
+
+# Inject CSS
+st.markdown("""
+    <style>
+        .main {
+            background-color: #f0f2f6;
+            padding: 2rem;
+        }
+        h1, h2, h3 {
+            color: #3b3b3b;
+        }
+        .stButton>button {
+            background-color: #ff4b4b;
+            color: white;
+            font-size: 16px;
+            border-radius: 10px;
+        }
+        .css-1aumxhk {
+            text-align: center;
+        }
+    </style>
+""", unsafe_allow_html=True)
+st.markdown("## 🏋️ Workout Tracker")
+st.markdown("### 🍽️ Nutrition Log")
+st.markdown("### 📷 Upload Your Food Image")
+st.markdown("### 📊 Daily Summary")
+col1, col2 = st.columns(2)
+with col1:
+    st.number_input("Protein (grams)", min_value=0)
+with col2:
+    st.number_input("Calories", min_value=0)
